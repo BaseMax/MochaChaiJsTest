@@ -1,7 +1,9 @@
 const app = require('../index');
 const assert = require('chai').assert;
 
+//////////////////////////////////////
 const sayHelloResult = app.sayHello();
+//////////////////////////////////////
 
 describe('sayHello()', () => {
     it('sayHello should return hello', () => {
@@ -10,6 +12,18 @@ describe('sayHello()', () => {
 
     it('sayHello should return type string', () => {
         assert.typeOf(sayHelloResult, 'string');
+    });
+});
+
+describe('concat()', () => {
+    it('concat should return type string', () => {
+        const concatResult = app.concat('Hello', 'World');
+        assert.typeOf(concatResult, 'string');
+    }).timeout(1000);
+
+    it('concat should return type string', () => {
+        const concatResult = app.concat('Hello', 'World');
+        assert.equal(concatResult, 'HelloWorld');
     });
 });
 
@@ -27,18 +41,5 @@ describe('addNumbers()', () => {
     it('addNumbers should return type number', () => {
         const addNumbersResult = app.addNumbers(null, null);
         assert.typeOf(addNumbersResult, 'number');
-    });
-});
-
-
-describe('concat()', () => {
-    it('concat should return type string', () => {
-        const concatResult = app.concat('Hello', 'World');
-        assert.typeOf(concatResult, 'string');
-    }).timeout(1000);
-
-    it('concat should return type string', () => {
-        const concatResult = app.concat('Hello', 'World');
-        assert.equal(concatResult, 'HelloWorld');
     });
 });
